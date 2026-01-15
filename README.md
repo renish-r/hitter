@@ -79,7 +79,7 @@ Cron schedule options:
 
 Edit [.env](.env):
 ```env
-SERVER_URL=https://replix-server.onrender.com
+SERVER_URL=https://server.com
 PING_INTERVAL=5  # minutes
 ```
 
@@ -92,7 +92,7 @@ PING_INTERVAL=5  # minutes
 ### Local Script Logs
 ```
 🚀 Server Hitter Started
-📡 Target Server: https://replix-server.onrender.com
+📡 Target Server: https://server.com
 ⏰ Ping Interval: 5 minutes
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
