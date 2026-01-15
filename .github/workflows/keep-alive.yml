@@ -1,0 +1,24 @@
+name: Keep Server Alive
+
+on:
+  schedule:
+    # Runs every 10 minutes
+    - cron: '*/10 * * * *'
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Ping Server
+        run: |
+          echo "🔄 Pinging server at $(date)"
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://replix-server.onrender.com)
+          echo "✅ Server responded with status: $response"
+          
+      - name: Ping Health Endpoint (if exists)
+        continue-on-error: true
+        run: |
+          echo "🏥 Checking health endpoint..."
+          curl -s https://replix-server.onrender.com/health || echo "No health endpoint found"
